@@ -1,4 +1,4 @@
-const CACHE_NAME = "magic-notebook-pwa-v2";
+const CACHE_NAME = "magic-notebook-pwa-v4";
 
 const FILES = [
   "./",
@@ -9,10 +9,10 @@ const FILES = [
 ];
 
 self.addEventListener("install", event => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(FILES))
   );
-  self.skipWaiting();
 });
 
 self.addEventListener("activate", event => {
